@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID පරික්ෂා කිරීම</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #00ff9f;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+    .box {
+      background: #1a1a1a;
+      padding: 30px;
+      max-width: 400px;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid #00ff9f;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #00ff9f;
+      border-radius: 8px;
+      background-color: #000;
+      color: #00ff9f;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #00ff9f;
+      color: #000;
+      padding: 12px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .modal-content {
+      background: #1a1a1a;
+      padding: 30px;
+      border: 1px solid #00ff9f;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .modal-content h2 {
+      color: #ff4444;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🔐 ඔබේ Aviator ක්‍රීඩා ID එක ඇතුළත් කරන්න</h2>
+    <input type="text" id="userId" placeholder="ඔබගේ ID (අංක 10ක)" maxlength="10">
+    <div>
+      <button class="btn" onclick="checkId()">පරික්ෂා කරන්න</button>
+      <a class="btn" href="index.html" style="background:#007bff; color:#fff; margin-left:10px;">ආපසු</a>
+    </div>
+  </div>
+
+  <div class="modal" id="alertModal">
+    <div class="modal-content">
+      <h2>මුදල් ප්‍රමාණය ප්‍රමාණවත් නොවේ</h2>
+      <p>ගිණුමේ අවම වශයෙන් 1500 LKR තිබිය යුතුය</p>
+      <a class="btn" href="https://your-casino-link.com">ගිණුම පුරවන්න</a>
+    </div>
+  </div>
+
+  <script>
+    function checkId() {
+      const id = document.getElementById("userId").value;
+      if (/^\d{10}$/.test(id)) {
+        document.getElementById("alertModal").style.display = "flex";
+      } else {
+        alert("කරුණාකර නිවැරදි ID එකක් ඇතුළත් කරන්න (අංක 10ක)");
+      }
+    }
+  </script>
+</body>
+</html>
